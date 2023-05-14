@@ -15,7 +15,7 @@ import java.util.List;
 public class QuizDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MyAwesomeQuiz.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     private static QuizDbHelper instance;
     private SQLiteDatabase db;
@@ -73,11 +73,11 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillCategoriesTable() {
-        Category c1 = new Category("Programming");
+        Category c1 = new Category("English");
         addCategory(c1);
-        Category c2 = new Category("Geography");
+        Category c2 = new Category("French");
         addCategory(c2);
-        Category c3 = new Category("Math");
+        Category c3 = new Category("Italian");
         addCategory(c3);
     }
 
@@ -88,30 +88,46 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
     private void fillQuestionsTable() {
-        Question q1 = new Question("Programming, Easy: A is correct",
-                "A", "B", "C", 1,
-                Question.DIFFICULTY_EASY, Category.PROGRAMMING);
+        Question q1 = new Question("Click the best synonym for cushion",
+                "pillow", "blanket", "shelf", 1,
+                Question.DIFFICULTY_EASY, Category.English);
         addQuestion(q1);
-        Question q2 = new Question("Geography, Medium: B is correct",
-                "A", "B", "C", 2,
-                Question.DIFFICULTY_MEDIUM, Category.GEOGRAPHY);
+        Question q2 = new Question("Click the best synonym for combine",
+                "raise", "mix", "arrive", 2,
+                Question.DIFFICULTY_MEDIUM, Category.English);
         addQuestion(q2);
-        Question q3 = new Question("Math, Hard: C is correct",
-                "A", "B", "C", 3,
-                Question.DIFFICULTY_HARD, Category.MATH);
+        Question q3 = new Question("Which of the following words is the synonym of \"chien\"",
+                "Chat", "Oiseau", "Caniche", 3,
+                Question.DIFFICULTY_HARD, Category.French);
         addQuestion(q3);
-        Question q4 = new Question("Math, Easy: A is correct",
-                "A", "B", "C", 1,
-                Question.DIFFICULTY_EASY, Category.MATH);
+        Question q4 = new Question("Which of the following words is the antonym of \"grand\"",
+                "Petit", "Rouge", "Beau", 1,
+                Question.DIFFICULTY_EASY, Category.French);
         addQuestion(q4);
-        Question q5 = new Question("Non existing, Easy: A is correct",
-                "A", "B", "C", 1,
-                Question.DIFFICULTY_EASY, 4);
+        Question q5 = new Question("Which of the following words is the synonym of \"casa\"",
+                "Appartamento", "Ufficio", "Autostrada", 1,
+                Question.DIFFICULTY_EASY, Category.Italian);
         addQuestion(q5);
-        Question q6 = new Question("Non existing, Medium: B is correct",
-                "A", "B", "C", 2,
-                Question.DIFFICULTY_MEDIUM, 5);
+        Question q6 = new Question("Which of the following words is the antonym of \"buono\"",
+                "Cattivo", "Caldo", "Veloce", 1,
+                Question.DIFFICULTY_MEDIUM, Category.Italian);
         addQuestion(q6);
+        Question q7 = new Question("Which of the following words is the synonym of \"eager\"",
+                "Enthusiastic", "Lazy", "Indifferent", 1,
+                Question.DIFFICULTY_EASY, Category.English);
+        addQuestion(q7);
+        Question q8 = new Question("Which of the following words is the antonym of \"abundant\"",
+                "Scarce", "Plentiful", "Indifferent", 1,
+                Question.DIFFICULTY_EASY, Category.English);
+        addQuestion(q8);
+        Question q9 = new Question("Which of the following words is the synonym of \"joyful\"?",
+                "Happy", "Sad", "Angry", 1,
+                Question.DIFFICULTY_EASY, Category.English);
+        addQuestion(q9);
+        Question q10 = new Question("Which of the following words is the antonym of \"brave\"?",
+                "Fearful", "Courageous", "Timid", 1,
+                Question.DIFFICULTY_HARD, Category.English);
+        addQuestion(q10);
     }
 
     private void addQuestion(Question question) {

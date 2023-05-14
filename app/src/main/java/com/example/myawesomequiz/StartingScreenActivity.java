@@ -51,6 +51,33 @@ public class StartingScreenActivity extends AppCompatActivity {
                 startQuiz();
             }
         });
+
+        Button helpButton = findViewById(R.id.button_help);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHelpScreen(view);
+            }
+        });
+
+        Button aboutButton = findViewById(R.id.button_about);
+        aboutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAboutScreen(view);
+            }
+        });
+
+    }
+
+    public void openHelpScreen(View view) {
+        Intent intent = new Intent(this, HelpScreenActivity.class);
+        startActivity(intent);
+    }
+
+    public void openAboutScreen(View view) {
+        Intent intent = new Intent(this, AboutScreenActivity.class);
+        startActivity(intent);
     }
 
     private void startQuiz() {
